@@ -119,4 +119,18 @@ class Admin extends BaseController
 
 		return view('conten/data_siswa', $data);
 	}
+
+	public function pembayaran()
+	{
+		if (admin_menu() == false)
+			return redirect()->to('/home/error');
+
+		$data = [
+			'title' => 'Kelola Data Siswa',
+			'user' => $this->UserModel->data_user(),
+			'siswa' => $this->UserModel->getSiswa(),
+		];
+
+		return view('conten/data_siswa', $data);
+	}
 }
